@@ -20,8 +20,9 @@ int main() {
 
     high = n - 1, low = 0;
 
-    while(++comp && high >= low)
+    while(high >= low)
     {
+        ++comp;
         mid = (high + low) / 2;
         if(key == arr[mid])
         {
@@ -41,3 +42,15 @@ int main() {
 
     return 0;
 }
+
+/*
+Enter size of array: 9
+Enter 9 elements in sorted order: 1 2 3 4 5 6 7 8 9
+Enter key: 5
+Present 1
+
+Enter size of array: 9
+Enter 9 elements in sorted order: 1 2 3 4 5 6 7 8 9
+Enter key: 19
+Not Present 4
+*/
