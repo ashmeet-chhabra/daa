@@ -32,3 +32,15 @@ int main() {
 
     return 0;
 }
+
+/*
+Enter size of array: 5
+Enter 5 elements: 1 4 1 2 9
+Enter key: 9
+Present 5
+
+Enter size of array: 5
+Enter 5 elements: 3 7 1 0 6
+Enter key: 1
+Present 3
+*/
