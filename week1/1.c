@@ -4,26 +4,21 @@ int main()
 {
 	int t;
 	
-	printf("Enter the number of test cases: ");
 	scanf("%d", &t); 
 	
 	while(t--)
 	{
     	int n, key;
-	    int found = 0; // flag
+		int found = 0; // flag
     	int comp = 0; // comparisons
 
-    	printf("Enter size of array: ");
     	scanf("%d", &n);
 
     	int arr[n];
 
-    	printf("Enter %d elements: ", n);
-
     	for(int i = 0; i < n; ++i)
     	    scanf("%d", &arr[i]);
 
-    	printf("Enter key: ");
     	scanf("%d", &key);
 
     	for(int i = 0; i < n; ++i)
@@ -34,14 +29,28 @@ int main()
     	    }
 
     	if(found)
-    	    printf("Present %d", comp);
+    	    printf("Present %d\n", comp);
     	else
-    	    printf("Not Present %d", comp);
+    	    printf("Not Present %d\n", comp);
     }
     return 0;
 }
 
 /*
+3
 
+8
+34 35 65 31 25 89 64 30
+89
+Present 6
 
+5
+977 354 244 546 355
+244
+Present 3
+
+6
+23 64 13 67 43 56
+63
+Not Present 6
 */
