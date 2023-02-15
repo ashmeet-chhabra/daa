@@ -4,7 +4,7 @@ int main()
 {
 	int t;
 	
-	printf("Enter the number of test cases");
+	printf("Enter the number of test cases: ");
 	scanf("%d", &t); 
 	
 	while(t--)
