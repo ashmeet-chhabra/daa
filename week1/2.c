@@ -1,56 +1,57 @@
 #include <stdio.h>
 
-int main() {
-    int n, key, high, low, mid;
-    int found = 0; // flag
-    int comp = 0; // comparisons
+int main()
+{
+	int t;
+	
+	printf("Enter the number of test cases: ");
+	scanf("%d", &t); 
+	
+	while(t--)
+	{
+	    int n, key, high, low, mid;
+	    int found = 0; // flag
+	    int comp = 0; // comparisons
 
-    printf("Enter size of array: ");
-    scanf("%d", &n);
+	    printf("Enter size of array: ");
+	    scanf("%d", &n);
 
-    int arr[n];
+	    int arr[n];
 
-    printf("Enter %d elements in sorted order: ", n);
+	    printf("Enter %d elements in sorted order: ", n);
 
-    for(int i = 0; i < n; ++i)
-        scanf("%d", &arr[i]);
+	    for(int i = 0; i < n; ++i)
+	        scanf("%d", &arr[i]);
 
-    printf("Enter key: ");
-    scanf("%d", &key);
+	    printf("Enter key: ");
+	    scanf("%d", &key);
 
-    high = n - 1, low = 0;
+	    high = n - 1, low = 0;
 
-    while(high >= low)
-    {
-        ++comp;
-        mid = (high + low) / 2;
-        if(key == arr[mid])
-        {
-            found = 1;
-            break;
-        }
-        else if(key > arr[mid])
-            low = mid + 1;
-        else
-            high = mid - 1;
-    }
+	    while(high >= low)
+	    {
+	        ++comp;
+	        mid = (high + low) / 2;
+	        if(key == arr[mid])
+	        {
+	            found = 1;
+	            break;
+	        }
+	        else if(key > arr[mid])
+	            low = mid + 1;
+	        else
+	            high = mid - 1;
+	    }
 
-    if(found)
-        printf("Present %d", comp);
-    else
-        printf("Not Present %d", comp);
-
+	    if(found)
+	        printf("Present %d", comp);
+	    else
+	        printf("Not Present %d", comp);
+	}
     return 0;
 }
 
 /*
-Enter size of array: 9
-Enter 9 elements in sorted order: 1 2 3 4 5 6 7 8 9
-Enter key: 5
-Present 1
 
-Enter size of array: 9
-Enter 9 elements in sorted order: 1 2 3 4 5 6 7 8 9
-Enter key: 19
-Not Present 4
+
 */
