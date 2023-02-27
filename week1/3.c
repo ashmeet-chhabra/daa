@@ -4,57 +4,77 @@ int main()
 {
 	int t;
 	
-	printf("Enter number of test cases: ");
 	scanf("%d", &t);
 	
 	while (t--)
 	{
-    	int n, key, high = 2, low = 0;
-	    int flag = 1, found = 0; // flags
-	    int comp = 0; // comparisons
+    	int n, key;
+        int prev = 0, curr = 2; // indices
+        int found = 0, flag = 0;
+        int comp = 0;   // comparisons
 
-	    printf("Enter size of array: ");
     	scanf("%d", &n);
 
 	    int arr[n];
 
-    	printf("Enter %d elements in sorted order: ", n);
-
     	for(int i = 0; i < n; ++i)
     	    scanf("%d", &arr[i]);
 
-    	printf("Enter key: ");
     	scanf("%d", &key);
 
-		comp++;
-		if(key < arr[0])
-			found = 0;
-		else
-		{
-			while(++comp && arr[high] < key)
-			{
-				if(high == n - 1 && key > arr[high])
-				{
-					flag = 0;
-					break;
-				}
-				low = high;
-				high *= 2;
-				if(high > n - 1)
-					high = n - 1;
-			}
-		
-			if(flag)
-				for(int i = low; i <= high; ++i)
-					if(key == arr[i])
-						found  = 1;			
-		} 
+        comp++;
+        if(key < arr[0])
+            flag = 1;
+
+        // to increment comp on every comparison
+        while(++comp && arr[curr] < key)
+        {
+            // to prevent infinite loop
+            if(curr == n - 1)
+            {
+                flag = 1;
+                break;
+            }
+
+            prev = curr;
+            curr *= 2;
+
+            // to prevent array out of bounds
+            if(curr >= n)
+                curr = n - 1;
+        }
+
+        if(!flag)
+            for(int i = prev; i <= curr; ++i)
+                if(arr[i] == key)
+                {
+                    found = 1;
+                    break;
+                }
 
     	if(found)
-    	    printf("Present %d", comp);
+    	    printf("Present %d\n", comp);
     	else
-    	    printf("Not Present %d", comp);
+    	    printf("Not Present %d\n", comp);
 	}
 	return 0;
 }
- 
+
+/*
+3
+
+5
+12 23 36 39 41
+41
+Present 3
+
+8
+21 39 40 45 51 54 68 72
+69
+Not Present 4
+
+10
+101 246 438 561 796 896 899 4644 7999 8545
+7999
+Present 4
+*/
