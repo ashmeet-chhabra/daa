@@ -44,7 +44,7 @@ void selectionSort(int arr[], int n)
     }
 }
 
-// will receive a sorted array
+// function will receive a sorted array
 void checkDuplicates(int arr[], int n)
 {
 	int flag = 0;
